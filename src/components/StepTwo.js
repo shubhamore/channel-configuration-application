@@ -24,17 +24,37 @@ export default function StepTwo() {
     const {reference, setReference} = useContext(Data)
     const {isOpen, setIsOpen} = useContext(Data)
     const {backup, setBackup} = useContext(Data)
-    const {opt, setOpt} = useContext(Data)
+    const {opt} = useContext(Data)
     const {keys} = useContext(Data)
     const {value, setValue} = useContext(Data)
 
-    useEffect(() => {
-        let temp = []
-        keys.forEach((key, index) => {
-            temp.push(opt[key])
-        });
-        setValue([...temp])
-    }, [])
+    useEffect(()=>{
+        localStorage.setItem('data',JSON.stringify(data))
+    },[data])
+
+    useEffect(()=>{
+        localStorage.setItem('reference',JSON.stringify(reference))
+    },[reference])
+    
+    useEffect(()=>{
+        localStorage.setItem('isOpen',JSON.stringify(isOpen))
+    },[isOpen])
+    
+    useEffect(()=>{
+        localStorage.setItem('backup',JSON.stringify(backup))
+    },[backup])
+    
+    useEffect(()=>{
+        localStorage.setItem('opt',JSON.stringify(opt))
+    },[opt])
+    
+    useEffect(()=>{
+        localStorage.setItem('keys',JSON.stringify(keys))
+    },[keys])
+    
+    useEffect(()=>{
+        localStorage.setItem('value',JSON.stringify(value))
+    },[value])
 
     const handleCheck = (ind) => {
         let temp = []
