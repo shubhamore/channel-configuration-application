@@ -1,5 +1,6 @@
 import React from 'react'
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import {Data} from '../Context';
 import schema from '../assets/schema.json'
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -17,14 +18,15 @@ import Checkbox from '@mui/material/Checkbox';
 import { FormGroup } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
+
 export default function StepTwo() {
-    const data = schema.channels
-    const [reference, setReference] = useState(Array(data.length).fill(' '))
-    const [isOpen, setIsOpen] = useState(Array(data.length).fill(false))
-    const [backup, setBackup] = useState(Array(data.length).fill(Array(1).fill(" ")))
-    const [opt, setOpt] = useState(schema.optionals[0])
-    const keys = Object.keys(schema.optionals[0])
-    const [value, setValue] = useState([])
+    const {data} = useContext(Data)
+    const {reference, setReference} = useContext(Data)
+    const {isOpen, setIsOpen} = useContext(Data)
+    const {backup, setBackup} = useContext(Data)
+    const {opt, setOpt} = useContext(Data)
+    const {keys} = useContext(Data)
+    const {value, setValue} = useContext(Data)
 
     useEffect(() => {
         let temp = []
