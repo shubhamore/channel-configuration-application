@@ -110,6 +110,7 @@ export default function StepTwo() {
     return (
         <TableContainer>
             <Table sx={{ minWidth: 650, background: '#F5F6FA', borderCollapse: 'separate', borderSpacing: '0px 40px', }} aria-label="simple table">
+                {/* first row in light blue color */}
                 <TableHead>
                     <TableRow sx={{ background: '#E5F3FF', borderRadius: '3px', margin: '10px 5px' }}>
                         <TableCell align='center' sx={{ borderTopLeftRadius: '3px', borderBottomLeftRadius: '3px' }}>Channel</TableCell>
@@ -118,6 +119,8 @@ export default function StepTwo() {
                         <TableCell align='center' sx={{ borderTopRightRadius: '3px', borderBottomRightRadius: '3px' }}> </TableCell>
                     </TableRow>
                 </TableHead>
+
+                {/* remaining rows of table */}
                 <TableBody>
                     {data.map((row, ind) => (
                         <>
@@ -125,9 +128,12 @@ export default function StepTwo() {
                                 key={row.name}
                                 sx={{ background: '#fff', borderRadius: '8px', padding: '2px' }}
                             >
+                                {/* channel name column */}
                                 <TableCell align='center' sx={{ borderTopLeftRadius: '8px', borderBottomLeftRadius: '8px', padding: '15px 0px', marginLeft: '8px', fontWeight: 'bold' }}>
                                     {reference[ind] !== ' ' ? data[ind] + ' : ' + reference[ind] : data[ind]}
                                 </TableCell>
+
+                                {/* primary channel column */}
                                 <TableCell align='center' sx={{ padding: '15px 0px' }}>
                                     <Box>
                                         <FormControl sx={{ m: 1, minWidth: 120 }} disabled>
@@ -143,6 +149,8 @@ export default function StepTwo() {
                                         </FormControl>
                                     </Box>
                                 </TableCell>
+
+                                {/* reference channel column */}
                                 <TableCell align='center' sx={{ padding: '15px 0px' }}>
                                     <Box>
                                         <FormControl sx={{ m: 1, minWidth: 120 }} >
@@ -161,6 +169,8 @@ export default function StepTwo() {
                                         </FormControl>
                                     </Box>
                                 </TableCell>
+
+                                {/* column for button to view/add/hide backup channel(s) */}
                                 <TableCell align='center' sx={{ borderTopRightRadius: '8px', borderBottomRightRadius: '8px', padding: '15px 0px' }}>
                                     {isOpen[ind] ?
                                         <Link sx={{ cursor: 'pointer' }} underline="hover" onClick={() => toggleBackup(ind)}>Hide Backup Channels</Link>
@@ -168,10 +178,13 @@ export default function StepTwo() {
                                             : <Link sx={{ cursor: 'pointer' }} underline="hover" onClick={() => toggleBackup(ind)}>View Backup Channels ({returnCount(ind)})</Link>}
                                 </TableCell>
                             </TableRow>
+                            
+                            {/* show backup row only if isOpen for that index is true */}
                             {isOpen[ind] && <>
                                 {backup[ind].map((ele, index) => {
                                     return <TableRow sx={{ background: '#F6F6F6', borderRadius: '8px', padding: '0px 0px', position: 'relative', top: '-40px' }}>
                                         <TableCell sx={{ borderBottom: 'none', borderCollapse: 'collapse', padding: '0px' }} align='center'></TableCell>
+
                                         <TableCell sx={{ borderBottom: 'none', borderCollapse: 'collapse', padding: '0px' }} align='center'>
                                             <Box>
                                                 <FormControl sx={{ m: 1, minWidth: 120 }} disabled>
@@ -187,6 +200,7 @@ export default function StepTwo() {
                                                 </FormControl>
                                             </Box>
                                         </TableCell>
+
                                         <TableCell sx={{ borderBottom: 'none', borderCollapse: 'collapse', padding: '0px' }} align='center'>
                                             <Box>
                                                 <FormControl sx={{ m: 1, minWidth: 120 }} >
@@ -206,11 +220,13 @@ export default function StepTwo() {
                                                 </FormControl>
                                             </Box>
                                         </TableCell>
+
                                         <TableCell sx={{ borderBottom: 'none', borderCollapse: 'collapse', padding: '0px' }} align='center'>
                                             <Link onClick={() => deleteBackup(ind, index)} color="#ff0000" underline='hover' fontWeight={'bold'} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}><DeleteOutlineIcon /> Delete</Link>
                                         </TableCell>
                                     </TableRow>
                                 })}
+
                                 <TableRow sx={{ background: '#F6F6F6', borderRadius: '8px', padding: '2px', position: 'relative', top: '-80px', border: 'none' }}>
                                     <TableCell align='center'></TableCell>
                                     <TableCell align='center'><Link onClick={() => addBackup(ind)} underline='hover' sx={{ cursor: 'pointer' }}>+ Add backup channels</Link></TableCell>
@@ -222,10 +238,13 @@ export default function StepTwo() {
                     ))}
                 </TableBody>
             </Table>
+
+            {/* table for optionals */}
             <Table>
                 <TableBody>
                     <TableRow sx={{ background: '#fff' }}>
                         <TableCell align='center'>Additional Settings</TableCell>
+                        {/* new cell for each option */}
                         {value.map((ele, ind) => {
                             return <TableCell align='center'>
                                 <FormGroup>
