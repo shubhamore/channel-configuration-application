@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Channel Configuration Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This project is an implementation of a Channel Configuration Application that matches the provided high-fidelity wireframe on Figma. It allows users to create and configure channels based on a JSON schema and provides a preview of the configured channels.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Assumptions](#assumptions)
+4. [Usage](#usage)
+5. [Features](#features)
+6. [Technologies Used](#technologies-used)
+7. [Contact Information](#contact-information)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Before you begin, ensure that you have the following installed on your machine:
 
-### `npm test`
+- [Node.js](https://nodejs.org): The JavaScript runtime environment.
+- Package Manager (npm or yarn): npm is typically installed with Node.js.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+To install and run the Channel Configuration Application, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Install dependencies: `npm install`
+2. Start the application: `npm run start`
+3. Open the app in a browser: After the development server starts successfully, open your web browser and navigate to http://localhost:3000. You should see the React app running.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Assumptions
+- Channel name is combination of Primary Channel and Reference Channel.
+- Select option for Primary Channel is disabled to maintain the amount of channels given in schema.json.
+- If value of Backup Reference Channel is NULL, then that channel is not considered as a backup channel.
+- Names of Channels and Additional settings in schema.json are random strings.
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### File Upload Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The File Upload page is the first step of the configuration process. It provides a user interface (UI) for uploading files and a "Next" button for navigation to the next step.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Channel Configuration Page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The Channel Configuration page is the second step. It requires fetching the "Schema.json" file.
 
-## Learn More
+Using the "channels" key-value pairs in the schema.json file, the application generates a form for mapping channels. Additional settings can be configured using data from the "optionals" key-value pairs.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The "Add backup channels" button opens a collapsible dropdown with the same Primary and Ref channel select elements. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+The application utilizes Context to manage data/state globally and saves channel configurations to local storage in real-time. This ensures that if a user closes the browser and returns later, their settings are automatically loaded.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Preview Page
 
-### Analyzing the Bundle Size
+The Preview page is the third and final step of the configuration process. It displays a preview of the configured channels. If the user clicks on "Edit Channels," they are taken back to the Channel Configuration page (step two).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+After completing the preview and the third step, the Save page is displayed. The edit buttons are disabled, and notifications are shown.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Features
 
-### Advanced Configuration
+- File Upload Page: User interface (UI) for file uploading and navigation to the next step.
+- Channel Configuration Page: Dynamically generated form for mapping channels based on the schema.json file. Additional settings configuration using data from the schema.json file. Collapsible dropdown for adding backup channels.
+- Preview Page: Displaying a preview of the configured channels. Ability to edit channels and navigate back to the Channel Configuration page.
+- Context Integration: Managing data/state globally and saving channel configurations to local storage in real-time.
+- Save Page: Disabling edit buttons and displaying notifications according to the Figma design.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Technologies Used
 
-### Deployment
+- React: JavaScript library for building user interfaces
+- Context API: State management library for React applications
+- HTML5: Markup language for structuring web pages
+- CSS3: Styling language for designing web pages
+- JavaScript: Programming language for implementing application logic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contact Information
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For any inquiries, please contact Shubham More at shubhamore02@gmail.com.

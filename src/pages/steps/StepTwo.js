@@ -1,7 +1,6 @@
 import React from 'react'
-import { useEffect, useState,useContext } from "react";
-import {Data} from '../Context';
-import schema from '../assets/schema.json'
+import { useEffect, useContext } from "react";
+import { Data } from '../../context/Context';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,44 +16,26 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import Checkbox from '@mui/material/Checkbox';
 import { FormGroup } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import '../../index.css'
 
 
 export default function StepTwo() {
-    const {data} = useContext(Data)
-    const {reference, setReference} = useContext(Data)
-    const {isOpen, setIsOpen} = useContext(Data)
-    const {backup, setBackup} = useContext(Data)
-    const {opt} = useContext(Data)
-    const {keys} = useContext(Data)
-    const {value, setValue} = useContext(Data)
+    const { data } = useContext(Data)
+    const { reference, setReference } = useContext(Data)
+    const { isOpen, setIsOpen } = useContext(Data)
+    const { backup, setBackup } = useContext(Data)
+    const { opt } = useContext(Data)
+    const { keys } = useContext(Data)
+    const { value, setValue } = useContext(Data)
 
-    useEffect(()=>{
-        localStorage.setItem('data',JSON.stringify(data))
-    },[data])
-
-    useEffect(()=>{
-        localStorage.setItem('reference',JSON.stringify(reference))
-    },[reference])
-    
-    useEffect(()=>{
-        localStorage.setItem('isOpen',JSON.stringify(isOpen))
-    },[isOpen])
-    
-    useEffect(()=>{
-        localStorage.setItem('backup',JSON.stringify(backup))
-    },[backup])
-    
-    useEffect(()=>{
-        localStorage.setItem('opt',JSON.stringify(opt))
-    },[opt])
-    
-    useEffect(()=>{
-        localStorage.setItem('keys',JSON.stringify(keys))
-    },[keys])
-    
-    useEffect(()=>{
-        localStorage.setItem('value',JSON.stringify(value))
-    },[value])
+    // save any changes in localStorage
+    useEffect(() => { localStorage.setItem('data', JSON.stringify(data)) }, [data])
+    useEffect(() => { localStorage.setItem('reference', JSON.stringify(reference)) }, [reference])
+    useEffect(() => { localStorage.setItem('isOpen', JSON.stringify(isOpen)) }, [isOpen])
+    useEffect(() => { localStorage.setItem('backup', JSON.stringify(backup)) }, [backup])
+    useEffect(() => { localStorage.setItem('opt', JSON.stringify(opt)) }, [opt])
+    useEffect(() => { localStorage.setItem('keys', JSON.stringify(keys)) }, [keys])
+    useEffect(() => { localStorage.setItem('value', JSON.stringify(value)) }, [value])
 
     const handleCheck = (ind) => {
         let temp = []
@@ -200,7 +181,7 @@ export default function StepTwo() {
                                             : <Link sx={{ cursor: 'pointer' }} underline="hover" onClick={() => toggleBackup(ind)}>View Backup Channels ({returnCount(ind)})</Link>}
                                 </TableCell>
                             </TableRow>
-                            
+
                             {/* show backup row only if isOpen for that index is true */}
                             {isOpen[ind] && <>
                                 {backup[ind].map((ele, index) => {
@@ -230,8 +211,6 @@ export default function StepTwo() {
                                                         id="backup-2"
                                                         value={backup[ind][index]}
                                                         onChange={(event) => handleBackup(ind, index, event.target.value)}
-                                                        // value={reference[ind]}
-                                                        // onChange={(event) => handleRef(ind, event.target.value)}
                                                         autoWidth
                                                     >
                                                         <MenuItem key={'NULL'} value={' '} selected={true}>NULL</MenuItem>
