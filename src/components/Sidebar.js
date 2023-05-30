@@ -29,7 +29,7 @@ export default function PermanentDrawerLeft() {
             variant="permanent"
             anchor="left"
         >
-            <h2 style={{ margin: '20px' }}>React Test</h2>
+            <h2 style={{ margin: '20px',textAlign:'center' }}>React Test</h2>
 
             <Divider sx={{ borderColor: "#4F4F4F", borderWidth: '1.5px', width: "85%", margin: '0 auto', borderRadius: '5px' }} />
             

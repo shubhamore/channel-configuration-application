@@ -2,21 +2,23 @@
   "formats": ["json", "csv"],
   "version": 1,
   "channels": [
-    "channel-1",
-    "channel-2",
-    "channel-3",
-    "channel-4",
-    "channel-5",
-    "channel-6",
-    "channel-7",
-    "channel-8",
-    "channel-9",
-    "channel-10"
+    "A-1",
+    "A-2",
+    "A-3",
+    "B-1",
+    "B-2",
+    "B-3",
+    "C-1",
+    "C-2",
+    "C-3",
+    "D-1",
+    "D-2",
+    "D-3"
   ],
   "optionals": [
     {
-      "optional1": true,
-      "optional2": true
+      "Artifacts": true,
+      "Spindle": true
     }
   ]
 }

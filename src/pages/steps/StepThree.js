@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Link from '@mui/material/Link';
+import Notification from '../../components/Notification'
 
 export default function StepThree({ handleBack, submitted = false }) {
     const { data } = useContext(Data)
@@ -35,7 +36,8 @@ export default function StepThree({ handleBack, submitted = false }) {
         return temp ? temp : 'none'
     }
 
-    return (
+    return (<>
+        {submitted&&<Notification/>}
         <TableContainer>
             <Table sx={{ minWidth: 650, background: '#F5F6FA', marginTop: '20px' }} aria-label="simple table">
                 {/* first row in light blue color */}
@@ -52,6 +54,8 @@ export default function StepThree({ handleBack, submitted = false }) {
             {/* remaining rows of table */}
             {data.map((ele, ind) => {
                 return <table className='table'>
+                    <tbody>
+
                     <tr className='table-row'>
                         <th className='table-head'>{reference[ind] !== ' ' ? data[ind] + ' : ' + reference[ind] : data[ind]}</th>
                         <th className='table-head'>{ele}</th>
@@ -72,6 +76,7 @@ export default function StepThree({ handleBack, submitted = false }) {
                             <td className='table-data'>{backup[ind][i] !== " " ? reference[backup[ind][i]] !== " " ? data[backup[ind][i]] + " : " + reference[backup[ind][i]] : data[backup[ind][i]] : "NULL"}</td>
                         </tr>
                     })}
+                    </tbody>
                 </table>
             })}
 
@@ -84,5 +89,6 @@ export default function StepThree({ handleBack, submitted = false }) {
                 </TableBody>
             </Table>
         </TableContainer>
+        </>
     )
 }

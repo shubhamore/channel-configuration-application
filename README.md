@@ -1,4 +1,5 @@
 # Channel Configuration Application
+[Click Here](https://neurobit-internship.netlify.app/) to visit the hosted website.
 
 ## Description
 
