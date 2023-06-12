@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/channel-configuration-application/static/css/main.ca775ed2.css",
+    "main.js": "/channel-configuration-application/static/js/main.509975de.js",
+    "index.html": "/channel-configuration-application/index.html",
+    "main.ca775ed2.css.map": "/channel-configuration-application/static/css/main.ca775ed2.css.map",
+    "main.509975de.js.map": "/channel-configuration-application/static/js/main.509975de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ca775ed2.css",
+    "static/js/main.509975de.js"
+  ]
+}
