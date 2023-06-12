@@ -1,5 +1,5 @@
 # Channel Configuration Application
-[Click Here](https://neurobit-internship.netlify.app/) to visit the hosted website.
+[Click Here](https://shubhamore.github.io/channel-configuration-application/) to visit the hosted website.
 
 ## Description
 
@@ -13,7 +13,6 @@ This project is an implementation of a Channel Configuration Application that ma
 4. [Usage](#usage)
 5. [Features](#features)
 6. [Technologies Used](#technologies-used)
-7. [Contact Information](#contact-information)
 
 ## Prerequisites
 
@@ -77,6 +76,3 @@ After completing the preview and the third step, the Save page is displayed. The
 - CSS3: Styling language for designing web pages
 - JavaScript: Programming language for implementing application logic
 
-## Contact Information
-
-For any inquiries, please contact Shubham More at shubhamore02@gmail.com.
